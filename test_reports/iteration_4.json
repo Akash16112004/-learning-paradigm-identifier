@@ -1,0 +1,30 @@
+{
+  "summary": "Tested the PDF report, the 30-item benchmark (gold + tricky splits), the meta model card and licences, the DistilBERT source badge, and the HF Space fallback logic. Backend: 7/7 new pytest tests passed. GET /api/report.pdf returns 200 application/pdf with filename P2_paradigm_identifier_report.pdf. pypdf text extraction found every section: accuracy table (Gold 20/Tricky 10/All), per domain, hallucination, failure cases including H items, DistilBERT fine-tuning, model card, synthetic-data limits and licence. /api/eval/latest has 30 items (10 marked split=hard), splits.core and splits.hard for all 4 methods, and distilbert_counts {local:30}. /api/meta has hard_benchmark (10 H items), model_card (7 rows of 2), licences (rows of 3), bert_source='local' and hf_space_url=''. Space logic: unit tests confirm space.predict returns None when HF_SPACE_URL is unset, when the Space does not exist, and when the Space returns an error dict. With a fake client it returns the Space dict with source 'hf_space'. tests/run_bert_order_check.py confirms run_bert prefers local, then the Space, then None. Frontend: the Evaluation PDF link points to /api/report.pdf and downloads the file. Core/hard cells show ZS 100/80, FS 100/70, CoT 100/80, DB 75/60. The item list shows 30 items with 10 asterisks, and 7 H failures are listed. The Responsible AI page shows 6 licence rows and 7 model-card fields. Classify shows the DistilBERT badge 'live · local'. No page errors or overlay on any route. Older regression suite: 20/21 passed. The one failure was an old test that still expected 20 items; I updated it to 30.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Evaluation run toast", "issue": "Toast still says 'Running 20-scenario benchmark…'; the benchmark now has 30 items", "selector": "Evaluation.jsx line 26", "priority": "LOW"},
+      {"component": "Responsible AI bias panel", "issue": "Footnote still says 'only 2–3 gold items per domain'; it is now 3–5 per domain (the Evaluation page already says n≈3–5)", "selector": "Responsible.jsx line 54", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/test_iter4_report_space.py", "/app/backend/tests/run_bert_order_check.py", "/app/backend/tests/test_paradigm_api.py", "/app/test_reports/pytest/pytest_results_iter4.xml"],
+  "action_items": [
+    "Change the eval toast text to '30-scenario' (or build it from job.total)",
+    "Change the Responsible AI footnote to '3–5 items per domain'"
+  ],
+  "critical_code_review_comments": [
+    "Zero-shot and CoT still tie (93.3% overall, 80% on tricky); only few-shot now differs (90%). The tricky set separates LLMs from DistilBERT, but not zero-shot from CoT.",
+    "_eval_job: if run_bert raises (e.g. trainer.predict throws locally), the except drops the whole item, LLM results included, instead of falling back to the saved prediction. space.predict catches its own errors, so the Space path is fine. Consider wrapping run_bert in its own try.",
+    "report.py passes scenario/model-card text straight into reportlab Paragraph (mini-XML). Any future text containing '&' or '<' will break PDF generation with a 500. Escape with xml.sax.saxutils.escape. The current data has none of these characters.",
+    "If HF_SPACE_URL is set to a full 'https://huggingface.co/spaces/...' page URL, check that gradio_client.Client accepts it. The 'user/space' id form or the *.hf.space URL is safer.",
+    "pypdf is not in requirements.txt. I installed it only for tests; the app does not need it."
+  ],
+  "updated_files": ["/app/backend/tests/test_iter4_report_space.py", "/app/backend/tests/run_bert_order_check.py", "/app/backend/tests/test_paradigm_api.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "None. One classify call stored one history entry. No eval run, no retraining.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "requests with a browser User-Agent works against the public URL. pypdf is installed in the venv for PDF text checks. Run run_bert_order_check.py with plain python, not pytest; it imports server, which loads trainer. Do not retrain or run eval unnecessarily."
+}

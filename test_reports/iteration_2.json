@@ -1,0 +1,29 @@
+{
+  "summary": "Frontend-only retest of the 'destroy is not a function' runtime overlay. I reproduced it on first load: the claimed fix was NOT on disk (App.js line 43 still read `useEffect(() => window.scrollTo(0, 0), [pathname])`). RCA: in the test Chromium, window.scrollTo() returns a Promise (newer scroll-promise behaviour), so the effect returned a Promise as its cleanup and React threw 'destroy is not a function'. Applied the one-line brace fix. After the fix: no overlay or console/page errors on load, over 3 rounds of navigating all 6 nav items, when reloading on each route, or on back/forward. Scroll resets to 0 on every route change (tested from scrollY up to 1284). Classifier smoke test passed: preset 2 -> UNSUPERVISED / K-Means, with algorithm-grounded and the illustration button shown. The off-topic input 'What is the capital of France?' shows off-topic-warning and label NOT ML, and hides algorithm, algorithm-grounded, generate-illustration-btn and the CoT panel.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "App.js ScrollTop", "issue": "FIXED by testing agent: the effect returned the Promise from window.scrollTo, causing the 'destroy is not a function' overlay on load. The main agent's fix had not been saved.", "selector": "n/a", "priority": "CRITICAL (resolved)"}
+    ],
+    "integration_issues": [
+      {"flow": "Off-topic classify", "issue": "A success toast shows the raw label 'Classified as not_ml'. It should be a neutral or warning toast such as 'Not an ML problem'.", "affected_selectors": ["[data-sonner-toast]"]}
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Keep the brace-wrapped ScrollTop effect in App.js; never return a non-function from useEffect",
+    "Optional: for off-topic results, show a warning toast instead of 'Classified as not_ml'"
+  ],
+  "critical_code_review_comments": [
+    "All other page useEffects return undefined or clearInterval cleanups correctly",
+    "Initial-load http.get calls in Classifier, Foundations, Responsible, Evaluation and Training have no .catch or error state, so a backend failure leaves the UI blank with an unhandled rejection"
+  ],
+  "updated_files": ["/app/frontend/src/App.js"],
+  "success_rate": {"backend": "not tested (skipped per request)", "frontend": "100% after fix"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "window.scrollTo returns a Promise in the test browser, so any effect written as `() => window.scrollTo(...)` will crash. Classification takes about 5-15s. Do not retrain or regenerate data.",
+  "rca of the issue": "Repro: open / -> overlay 'destroy is not a function' at bundle.js:23211. Cause: `useEffect(() => window.scrollTo(0,0), [pathname])` returns the scrollTo result; in current Chromium that result is a Promise, not undefined, and React calls it as a cleanup function. Fix: `useEffect(() => { window.scrollTo(0, 0); }, [pathname]);` (applied and verified)."
+}

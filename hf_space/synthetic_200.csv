@@ -1,0 +1,201 @@
+text,label,domain,algorithm
+"Predict hospital readmission within 30 days based on patient demographics, prior admissions, and treatment details to optimize discharge planning.",supervised,healthcare,classification
+Estimate the risk score for developing diabetes using electronic health records including lab results and family history.,supervised,healthcare,regression
+"Classify medical imaging scans to detect presence or absence of tumors, assisting radiologists in early diagnosis.",supervised,healthcare,convolutional neural network
+Identify whether patients will respond positively to a new drug based on genomic and clinical trial data.,supervised,healthcare,binary classification
+Predict the severity level of a stroke outcome from MRI images and clinical factors to prioritize treatment urgency.,supervised,healthcare,multi-class classification
+Forecast patient length of stay in intensive care units using vital signs and treatment protocols to improve resource allocation.,supervised,healthcare,regression
+Detect anomalies in ECG time series data to flag potential cardiac arrhythmias early for preventive care.,supervised,healthcare,sequence classification
+Classify skin lesion photos to differentiate malignant from benign cases to support dermatology workflows.,supervised,healthcare,image classification
+Predict medication adherence likelihood using patient questionnaires and pharmacy refill records to tailor interventions.,supervised,healthcare,binary classification
+Group patients into subtypes based on gene expression profiles to uncover novel disease categories.,unsupervised,healthcare,clustering
+Discover unusual patterns in hospital admission records to identify potential fraud or errors in billing.,unsupervised,healthcare,anomaly detection
+Cluster wearable sensor data from elderly patients to find distinct activity patterns associated with fall risk.,unsupervised,healthcare,clustering
+Analyze medication usage data to detect underlying latent factors influencing prescribing behaviors across regions.,unsupervised,healthcare,factor analysis
+Identify hidden structure in multi-dimensional health survey responses to improve mental health screening tools.,unsupervised,healthcare,dimensionality reduction
+Group disease outbreaks by symptom similarity to help epidemiologists track emerging infectious diseases.,unsupervised,healthcare,clustering
+Detect rare but critical adverse event patterns in post-marketing surveillance datasets to enhance drug safety.,unsupervised,healthcare,anomaly detection
+Segment patients into risk-based cohorts using longitudinal health records for personalized preventive care programs.,unsupervised,healthcare,clustering
+Identify novel biomarker combinations from proteomic datasets that correspond to early-stage cancer detection.,unsupervised,healthcare,feature extraction
+Develop a treatment policy that dynamically adjusts medication doses based on continuous vitals monitoring to minimize side effects while maximizing efficacy.,reinforcement,healthcare,policy optimization
+Optimize scheduling of nurse shifts using patient flow data to improve coverage and reduce staff fatigue.,reinforcement,healthcare,combinatorial optimization
+Train a system to suggest personalized physical therapy exercises that maximize patient mobility gains over time.,reinforcement,healthcare,actor-critic
+Learn an insulin delivery policy from continuous glucose monitor data for automated diabetes management.,reinforcement,healthcare,Q-learning
+Build a decision-making agent that recommends ICU interventions to improve patient survival probabilities based on evolving clinical information.,reinforcement,healthcare,deep reinforcement learning
+Create a protocol for adaptive radiation therapy doses by balancing tumor control with toxicity risk in head and neck cancers.,reinforcement,healthcare,policy gradient
+Develop a system that dynamically adjusts ventilator settings based on patient respiratory feedback to minimize complications.,reinforcement,healthcare,deep Q-network
+"Given historical loan application data with outcomes, predict whether a new applicant will default within the first year to reduce credit risk exposure.",supervised,finance,classification
+Estimate the future daily stock prices based on past price movements and trading volume to guide portfolio allocation.,supervised,finance,time series regression
+Predict the likelihood that a customer will churn from a subscription-based investment advisory service using their transaction and interaction histories.,supervised,finance,binary classification
+"Using labeled transaction records, classify whether each transaction is fraudulent to flag suspicious activity promptly.",supervised,finance,binary classification
+"Forecast the credit score of individuals based on their income, expenditure patterns, and previous credit history to adjust credit limits dynamically.",supervised,finance,regression
+Predict the next day’s foreign exchange rates using historical currency pair data and macroeconomic indicators to assist in hedging strategies.,supervised,finance,time series forecasting
+"Given labeled customer reviews and social media posts about financial products, classify sentiment to understand market perception.",supervised,finance,sentiment analysis
+"Using past marketing campaigns and customer response data, predict which customers are most likely to respond positively to a new credit card offer.",supervised,finance,classification
+Predict loan approval decisions for new applications using historical approval data and applicant attributes to streamline processing.,supervised,finance,classification
+Discover natural groupings of investment portfolios based on asset allocation and risk metrics to tailor financial advice.,unsupervised,finance,clustering
+Identify unusual patterns in banking transactions without prior labels to uncover potential money laundering activities.,unsupervised,finance,anomaly detection
+Segment customers into discrete groups based on their spending habits and credit usage to create targeted promotional campaigns.,unsupervised,finance,clustering
+Analyze unlabeled market news articles to extract dominant themes and topics influencing stock prices.,unsupervised,finance,topic modeling
+Group loans by hidden characteristics based on payment histories and borrower demographics to identify emerging credit risk patterns.,unsupervised,finance,clustering
+Detect clusters of fraudulent accounts by analyzing transaction networks without predefined fraud labels.,unsupervised,finance,community detection
+Identify latent factors influencing bond yield movements through dimensionality reduction techniques applied to historical bond data.,unsupervised,finance,dimensionality reduction
+Discover seasonal patterns in credit card spending behaviors by analyzing transaction data without labels to optimize marketing timing.,unsupervised,finance,pattern mining
+"Develop a trading agent that learns to maximize returns by interacting with live stock market data, adjusting its portfolio allocations over time.",reinforcement,finance,policy optimization
+Create an automated credit limit adjustment system that adjusts customer limits based on their repayment behaviors to balance risk and customer satisfaction.,reinforcement,finance,Q-learning
+"Optimize the timing and amount of loan offers to customers in a dynamic environment, aiming to maximize accepted offers and minimize defaults.",reinforcement,finance,actor-critic
+Develop a portfolio management strategy that incrementally allocates assets based on market conditions and prior investment outcomes to maximize long-term returns.,reinforcement,finance,deep reinforcement learning
+Train a system that recommends personalized financial products by learning from customer feedback and engagement over multiple interactions.,reinforcement,finance,multi-armed bandit
+Build a dynamic pricing model for insurance premiums that adapts based on client claims history and market trends to optimize profitability and competitiveness.,reinforcement,finance,policy gradient
+Develop a cash management bot that learns optimal withdrawal and deposit strategies to minimize fees while ensuring liquidity for business accounts.,reinforcement,finance,Q-learning
+Create a trading bot that learns to execute orders in fragmented markets balancing speed and price impact to minimize overall transaction costs.,reinforcement,finance,deep reinforcement learning
+"Given historical transaction records with associated customer demographics, predict which customers are likely to respond to a new promotional campaign to maximize marketing ROI.",supervised,retail,classification
+"Using a dataset of past sales volumes and pricing details for thousands of products, forecast the demand for each product in the next quarter to optimize inventory levels.",supervised,retail,regression
+"From a labeled dataset of product reviews indicating sentiment, build a model to automatically determine positive or negative sentiment on new customer reviews.",supervised,retail,text classification
+"Given images of product shelves labeled with stock levels, predict out-of-stock situations to enable timely restocking and reduce lost sales.",supervised,retail,image recognition
+"Using historical customer churn data, identify which customer profiles are at highest risk of leaving to enable targeted retention efforts.",supervised,retail,binary classification
+Predict the optimal discount percentage per product category based on past sales and promotion effectiveness data to maximize overall revenue.,supervised,retail,regression
+"Given labeled examples of fraudulent versus legitimate transactions, create a system to flag suspicious purchases in real-time.",supervised,retail,anomaly detection
+"From customer purchase histories with returns labels, predict the likelihood that a newly purchased product will be returned.",supervised,retail,binary classification
+"Using past data on email campaign sends and resulting click-through rates, predict the best day and time to send emails for maximum engagement.",supervised,retail,time series forecasting
+Analyze unlabeled transaction data to group customers into distinct segments based on purchasing patterns for personalized marketing strategies.,unsupervised,retail,clustering
+Discover unusual purchasing behaviors and detect potential fraud by examining patterns in transaction data without prior labels.,unsupervised,retail,anomaly detection
+"Using unlabeled product attribute data, identify natural groupings of products to improve catalog organization and recommendations.",unsupervised,retail,clustering
+Extract latent topics from a large corpus of customer reviews to understand key themes and areas for product improvement.,unsupervised,retail,topic modeling
+Segment stores based on sales and demographic data to tailor regional marketing and inventory strategies without predefined labels.,unsupervised,retail,clustering
+Identify patterns of co-purchasing behaviors among products to enhance cross-selling tactics by analyzing transaction data without annotations.,unsupervised,retail,association rule mining
+Detect shifts in customer buying habits over time by analyzing time series transaction data to support strategic planning.,unsupervised,retail,change point detection
+Learn underlying structures in high-dimensional product feature data to enable more efficient search and retrieval.,unsupervised,retail,dimensionality reduction
+Develop a personalized shopping assistant that learns from customer interactions and evolves its product recommendations to maximize user satisfaction and sales.,reinforcement,retail,policy optimization
+Create an automated pricing agent that adjusts prices dynamically based on competitor pricing and inventory levels to maximize profit over time.,reinforcement,retail,Q-learning
+Design a robot inventory picker that learns optimal navigation and selection strategies in a warehouse environment through trial and error to enhance efficiency.,reinforcement,retail,deep reinforcement learning
+Develop an adaptive checkout queue management system that directs customers to registers to minimize average wait times and improve throughput.,reinforcement,retail,multi-armed bandit
+"Train a system to optimize promotional budget allocation across various channels, learning from ongoing campaign performance to maximize overall sales lift.",reinforcement,retail,policy gradient
+Implement a demand response pricing strategy that dynamically adjusts product discounts during peak shopping periods to balance demand and supply.,reinforcement,retail,actor-critic
+Develop an autonomous robotic shelf-stocking system that learns efficient shelf replenishment routes and item placement to minimize restocking time.,reinforcement,retail,deep Q-network
+Create a system that personalizes product recommendation sequences for returning customers by learning from feedback signals such as clicks and purchases.,reinforcement,retail,reinforcement learning with user feedback
+A company collects labeled sensor data from robotic arms performing assembly tasks and wants to predict future tool wear to schedule maintenance proactively.,supervised,robotics,predictive maintenance model
+"Researchers have a large dataset of images from a robot’s camera, each tagged with the object type, and need to train a system to classify objects accurately in cluttered environments.",supervised,robotics,convolutional neural network
+"An autonomous drone collects GPS and altitude readings labeled with flight maneuvers, and the goal is to model the relationship to improve flight stability under wind disturbances.",supervised,robotics,regression model
+"Data from force sensors and joint angles are annotated with corresponding grasp success rates, aiming to build a model to predict grasp quality in new objects.",supervised,robotics,random forest classifier
+A dataset of video frames labeled with robot pose coordinates is used to train a network that estimates the robot’s position from raw images for navigation purposes.,supervised,robotics,pose estimation neural network
+Engineers gather sequences of labeled robot speech commands paired with expected arm movements to develop a system that translates voice commands into precise motor actions.,supervised,robotics,sequence-to-sequence model
+A set of sensory inputs from a mobile robot paired with obstacle detection labels is collected to train a model that identifies obstacles in real time from raw sensor data.,supervised,robotics,support vector machine
+Robotic vacuum sensor readings accompanied by room-cleaning labels are used to build a classifier that predicts the best cleaning mode depending on floor type.,supervised,robotics,decision tree
+Data on the robot’s battery voltage and usage patterns are labeled by remaining operational time to train a model that forecasts when a recharge is necessary.,supervised,robotics,time series forecasting
+Unlabeled depth and RGB images collected from a robot exploring unknown indoor environments are analyzed to discover common structural patterns in room layouts.,unsupervised,robotics,clustering
+A large collection of unlabeled joint movement trajectories from multiple robots is processed to identify typical behavior modes without prior annotations.,unsupervised,robotics,hidden Markov models
+Sensor data streams from multiple robots are aggregated to group operating states and detect deviations signaling mechanical faults without predefined labels.,unsupervised,robotics,anomaly detection
+Unlabeled tactile sensor data from robotic grippers during various unstructured interactions is clustered to discover common grasp types for manipulation enhancement.,unsupervised,robotics,k-means clustering
+Robotic swarm location data without labels is used to identify emergent group formations and collective behaviors through pattern discovery techniques.,unsupervised,robotics,density-based clustering
+Positional trajectories of robots performing tasks in a warehouse are unlabeled but analyzed to find frequent movement paths and optimize navigation routes.,unsupervised,robotics,trajectory clustering
+"Raw sensor logs from multiple robots are categorized into operational modes via dimensionality reduction to visualize high-dimensional behavior differences, with no predefined classes.",unsupervised,robotics,principal component analysis
+A dataset of unlabeled audio recordings from robotic systems is studied to separate different noise sources and identify environmental sound patterns.,unsupervised,robotics,source separation
+A robotic assistant learns through trial interactions in kitchen tasks to maximize efficiency and minimize error rates by adjusting manipulation strategies over time.,reinforcement,robotics,policy gradient
+An autonomous warehouse robot receives feedback based on delivery speed and accuracy and iteratively improves its path planning to boost throughput.,reinforcement,robotics,Q-learning
+A simulation environment provides reward signals to a robot learning to balance on uneven terrain by optimizing its joint torques through repeated trials.,reinforcement,robotics,deep deterministic policy gradient
+"A robot navigates a dynamic obstacle course receiving positive feedback for reaching checkpoints quickly, aiming to learn an optimal navigation policy under uncertainty.",reinforcement,robotics,actor-critic
+"A robotic manipulator experiments with different grip forces during assembly, adjusting its actions based on success rewards to prevent object damage.",reinforcement,robotics,SARSA
+An autonomous underwater robot adjusts propulsion and direction controls to maintain depth and heading by maximizing long-term stability rewards.,reinforcement,robotics,proximal policy optimization
+A bipedal robot learns walking gait by iteratively updating its joint actuation policies based on stability and energy efficiency measured through reward feedback.,reinforcement,robotics,trust region policy optimization
+A robotic drone trains in a simulated environment to optimize its landing strategy using reward signals that balance accuracy and energy consumption.,reinforcement,robotics,model-based RL
+"Given player behavior logs and their in-game purchases, predict the likelihood of a user making a premium purchase in the next month to optimize marketing spend.",supervised,gaming,classification
+"Using historical match data including player stats and outcomes, forecast the winning team before the game starts to inform betting odds.",supervised,gaming,classification
+"From player chat logs labeled with abusive or non-abusive messages, build a system that identifies toxic behavior to improve community health.",supervised,gaming,text classification
+"Given a dataset of game sessions with labeled levels of player frustration, predict frustration levels to adjust game difficulty dynamically.",supervised,gaming,regression
+"Using past gameplay video frames annotated with specific actions taken, train a model to automatically recognize player moves for performance analysis.",supervised,gaming,image classification
+"From data on player progress and achievement unlocks, predict which achievement a player is likely to pursue next to tailor content recommendations.",supervised,gaming,multi-class classification
+"Given audio clips from in-game voice chat labeled with emotional tone, create a system to detect player sentiment for real-time feedback.",supervised,gaming,audio classification
+"Based on player demographics and game interaction metrics, predict the player's preferred game genre to personalize the gaming experience.",supervised,gaming,classification
+"Using historical server performance data and labeled instances of crashes, forecast upcoming server failures to reduce downtime.",supervised,gaming,time series forecasting
+Analyze unlabeled player interaction logs to identify common play styles emerging in the community without prior assumptions.,unsupervised,gaming,clustering
+"From large volumes of game telemetry data, detect unusual usage patterns that may indicate cheating or exploitation.",unsupervised,gaming,anomaly detection
+"Using unannotated in-game text chat data, uncover latent topics and themes to better understand player interests.",unsupervised,gaming,topic modeling
+Cluster game maps based on player movement heatmaps to categorize environments according to player behavior styles.,unsupervised,gaming,clustering
+Identify groups of players with similar purchasing habits from transaction records to inform segmented marketing strategies.,unsupervised,gaming,clustering
+Detect patterns in untagged in-game event logs that could reveal new types of game bugs or unintended exploits.,unsupervised,gaming,pattern mining
+Generate a low-dimensional representation of game assets based on their attributes and usage to aid in content curation.,unsupervised,gaming,dimensionality reduction
+Analyze unlabeled player skill metrics to discover distinct player archetypes for matchmaking improvements.,unsupervised,gaming,clustering
+Train an agent to navigate a complex game environment optimizing for maximum score using only in-game feedback and rewards over time.,reinforcement,gaming,policy optimization
+Develop an AI that learns how to defeat human players by trial and error in a real-time strategy game setting.,reinforcement,gaming,deep reinforcement learning
+Create an adaptive NPC that learns to coach players based on their changing skill levels and in-game performance feedback.,reinforcement,gaming,actor-critic methods
+Design an autonomous system to efficiently manage resource allocation in multiplayer games by learning optimal strategies from experience.,reinforcement,gaming,Q-learning
+Train a bot to optimize route planning in an open-world game by maximizing rewards collected while minimizing danger encounters.,reinforcement,gaming,value iteration
+Build a self-learning system that adjusts game difficulty dynamically by interacting with players and observing their success rates.,reinforcement,gaming,reinforcement learning
+Develop a virtual coach that adapts its advice based on player responses and game outcomes to improve training effectiveness.,reinforcement,gaming,policy gradient
+Construct an AI agent to optimize in-game economy decisions by learning from state transitions and player behaviors over time.,reinforcement,gaming,model-based reinforcement learning
+"Using historical sensor readings from assembly line machines paired with records of product defects, predict the likelihood of defects in new batches to reduce waste and improve quality control.",supervised,manufacturing,classification
+"Analyze time-stamped temperature, pressure, and vibration data from multiple production units without any labels to identify unusual operation patterns that could indicate early signs of equipment failure.",unsupervised,manufacturing,anomaly detection
+Determine the optimal speed and force settings for robotic arms in a welding station through iterative adjustments that maximize throughput while minimizing material stress.,reinforcement,manufacturing,policy optimization
+Predict the remaining useful life of turbine blades based on their usage history and environmental conditions logged during operation to plan maintenance schedules effectively.,supervised,manufacturing,regression
+Cluster raw material inputs based on chemical composition and impurity levels to discover natural groupings that inform tailored processing methods.,unsupervised,manufacturing,clustering
+Automate conveyor belt speed adjustment dynamically in response to fluctuating input feed rates to maintain consistent production output and avoid bottlenecks.,reinforcement,manufacturing,value-based learning
+Use archived quality inspection images labeled as pass or fail to train a model that can automatically classify future product images for defects in paint application.,supervised,manufacturing,image classification
+Identify common operational states of a CNC machine by analyzing high-frequency spindle speed and torque data to improve predictive maintenance models.,unsupervised,manufacturing,dimensionality reduction
+Develop a control strategy for an automated packaging robot to minimize cycle time and ensure package integrity by learning from its interactions with packaging materials.,reinforcement,manufacturing,model-free control
+"Forecast hourly energy consumption in a factory using past consumption data, ambient temperature, and production schedules to optimize energy procurement costs.",supervised,manufacturing,time series forecasting
+"Discover latent patterns in machine failure logs to group failures by root cause, enabling targeted troubleshooting without prior failure labels.",unsupervised,manufacturing,topic modeling
+Create a policy for robotic pallet stacking that adapts to varying box sizes and weights to maximize stability and minimize loading time.,reinforcement,manufacturing,actor-critic methods
+Automatically segment different types of surface defects on metal sheets using a dataset of labeled high-resolution micrograph images to enhance quality assessment.,supervised,manufacturing,semantic segmentation
+Analyze unlabeled vibration and acoustic data from pumps to identify distinct operating modes and detect deviations indicative of malfunctions.,unsupervised,manufacturing,spectral clustering
+Learn a scheduling approach for multi-stage production lines that adapts in real-time to machine downtime and order priority to minimize fulfillment delays.,reinforcement,manufacturing,deep Q-learning
+Model the relationship between process parameters and final product thickness using historical sensor data to support precise process control.,supervised,manufacturing,multivariate regression
+Detect clusters of similar energy consumption patterns across multiple manufacturing sites to help benchmark operational efficiency without predefined categories.,unsupervised,manufacturing,k-means clustering
+Optimize the sequence of robotic painting tasks to maximize coating consistency while minimizing paint usage and robot movement time.,reinforcement,manufacturing,policy gradient
+Classify types of packaging machine faults using labeled historical troubleshooting reports combined with sensor readings for faster diagnostics.,supervised,manufacturing,random forest
+Identify anomalous power consumption profiles in untagged factory equipment data streams that could signal impending electrical failures.,unsupervised,manufacturing,autoencoder
+Train a robotic arm to adaptively sort products on a conveyor by weight and size by trial-and-error interactions to maximize sorting accuracy and speed.,reinforcement,manufacturing,deep deterministic policy gradient
+Predict wire diameter variance from controllable process variables using labeled production datasets to ensure compliance with product standards.,supervised,manufacturing,support vector regression
+Discover natural grouping of machinery based on maintenance logs and operational parameters to inform customized upkeep strategies without pre-assigned labels.,unsupervised,manufacturing,hierarchical clustering
+Develop a dynamic control policy for temperature and humidity in a chemical reactor to optimize yield by learning from continuous state feedback and reward signals.,reinforcement,manufacturing,proximal policy optimization
+Use sensor data labeled with failure events to predict imminent malfunctions in injection molding machines enabling proactive interventions.,supervised,manufacturing,gradient boosting
+Use historical weather and soil moisture data alongside crop yield records to predict the expected yield for different crops under varying climatic conditions.,supervised,agriculture,regression
+Classify leaf images into healthy or diseased categories to enable early detection and treatment of crop diseases using labeled photos from multiple farms.,supervised,agriculture,image classification
+Determine the optimal fertilizer application rates by analyzing past fertilizer usage and resulting crop growth measurements to maximize productivity while minimizing costs.,supervised,agriculture,regression
+Predict pest infestation outbreaks based on environmental sensor data and historical pest occurrence records collected over several planting seasons.,supervised,agriculture,time-series forecasting
+Identify crop types from multispectral satellite imagery using labeled data to support regional agricultural monitoring and planning.,supervised,agriculture,multiclass classification
+Estimate the quality grade of harvested fruits by analyzing chemical composition and visual characteristics from a labeled dataset of fruit samples.,supervised,agriculture,classification
+Predict irrigation needs by modeling soil moisture and weather data with past irrigation amounts to automate water usage decisions.,supervised,agriculture,regression
+Identify suitable crop varieties for different microclimates by linking genotype and phenotype data with yield outcomes across diverse environments.,supervised,agriculture,multiclass classification
+"Forecast market prices of staple crops by analyzing historical pricing, supply data, and seasonal effects to support farmer pricing strategies.",supervised,agriculture,time-series forecasting
+"Group farmlands into clusters based on soil type, elevation, and moisture levels to facilitate targeted resource allocation and crop planning.",unsupervised,agriculture,clustering
+Discover patterns in livestock behavior from sensor data without pre-existing labels to detect abnormal activity that may indicate illness or stress.,unsupervised,agriculture,anomaly detection
+Identify underlying factors behind fluctuations in crop yields by reducing dimensionality of environmental and genetic variables collected over multiple years.,unsupervised,agriculture,dimensionality reduction
+Segment aerial drone images into different vegetation types automatically to monitor crop health and field heterogeneity.,unsupervised,agriculture,image segmentation
+Cluster irrigation schedules from various farms to uncover common water usage patterns without prior labeling.,unsupervised,agriculture,clustering
+Detect unusual patterns in soil nutrient depletion by analyzing sensor readings over time to prompt targeted soil treatment.,unsupervised,agriculture,anomaly detection
+Identify latent groups of pest species based on genomic data to aid in understanding pest diversity and resistance mechanisms.,unsupervised,agriculture,clustering
+Analyze crop rotation sequences to discover common patterns that lead to improved soil health and yield outcomes.,unsupervised,agriculture,pattern mining
+Develop an autonomous irrigation controller that adjusts watering frequency and duration based on real-time soil moisture and weather conditions to optimize water use.,reinforcement,agriculture,policy optimization
+"Train a system to decide the best timing for pesticide application by balancing pest control effectiveness and environmental impact, using live pest population data.",reinforcement,agriculture,Q-learning
+Optimize greenhouse temperature and humidity controls dynamically to maximize plant growth rates while minimizing energy consumption.,reinforcement,agriculture,actor-critic
+Control robotic weeders to navigate varied and uneven farmland terrain while minimizing crop damage and maximizing weed removal efficiency.,reinforcement,agriculture,deep reinforcement learning
+Develop adaptive harvesting schedules that respond to real-time weather forecasts and crop maturity indicators to reduce fruit loss and labor costs.,reinforcement,agriculture,policy gradient
+Learn optimal feeding strategies for livestock that maximize growth and health metrics based on real-time sensor feedback and historical nutrition data.,reinforcement,agriculture,multi-armed bandit
+Train a drone flight controller to efficiently scan large crop fields for disease symptoms while minimizing flight time and battery usage.,reinforcement,agriculture,proximal policy optimization
+Optimize crop planting patterns over multiple seasons by learning from prior planting outcomes and environmental variability to increase long-term yield stability.,reinforcement,agriculture,deep Q-network
+"Given labeled historical logs of network traffic marked as benign or malicious, develop a system that can accurately detect intrusion attempts in real time to protect organizational assets.",supervised,cybersecurity,classification
+"Using a database of emails tagged as spam or legitimate, create a model that can automatically filter unwanted phishing emails to reduce the risk of cybersecurity breaches.",supervised,cybersecurity,classification
+"With a dataset of user login attempts labeled as successful or failed and known attack types, predict the likelihood of credential stuffing attacks to enhance authentication security.",supervised,cybersecurity,classification
+"Analyze historical malware samples with categories (ransomware, spyware, trojan) to build a tool that identifies the specific type of new malware files for quicker incident response.",supervised,cybersecurity,multiclass classification
+"Given network flow records annotated by normal or anomalous traffic, design a system to classify future network sessions and flag potential distributed denial-of-service (DDoS) attacks.",supervised,cybersecurity,binary classification
+"Utilize prior phishing website data labeled as malicious or benign to develop a model that detects fraudulent websites in real time, preventing users from visiting harmful pages.",supervised,cybersecurity,binary classification
+"Using data from past security alerts labeled by severity (low, medium, high), create a predictive model to prioritize incoming alerts for efficient resource allocation in a security operations center.",supervised,cybersecurity,multiclass classification
+"Analyze scans of software binaries labeled with vulnerabilities to predict which code regions are most likely to contain critical security flaws, assisting developers in vulnerability mitigation.",supervised,cybersecurity,classification
+"From labeled user behavior logs indicating insider threat or normal activity, develop a detection model to identify risky insider behaviors before damage occurs.",supervised,cybersecurity,binary classification
+"Given large unlabeled datasets of network traffic, discover unusual patterns that might indicate zero-day threats or advanced persistent threats without prior knowledge of specific attack types.",unsupervised,cybersecurity,anomaly detection
+Analyze unlabeled system event logs to cluster similar events and uncover new categories of suspicious activities that have not been previously documented.,unsupervised,cybersecurity,clustering
+"From unlabeled user authentication records, identify outlier login behaviors that could represent compromised accounts or credential misuse.",unsupervised,cybersecurity,anomaly detection
+"Using unlabeled network flow data, group traffic into clusters to understand baseline behavior and detect deviations indicative of novel cyber attacks.",unsupervised,cybersecurity,clustering
+"Given unlabeled data on file accesses across an enterprise, discover hidden access patterns that might reveal unauthorized data exfiltration attempts.",unsupervised,cybersecurity,pattern mining
+Analyze unlabeled alerts from multiple sensors to identify correlations and groupings that may indicate coordinated multi-vector cyber attacks.,unsupervised,cybersecurity,clustering
+"Use untagged malware binary features to extract latent structures and similarities, enabling grouping of malware into unknown families for research purposes.",unsupervised,cybersecurity,representation learning
+"From unlabeled logs of user commands in a secure shell environment, discover anomalous sequences that could represent sophisticated intrusion attempts.",unsupervised,cybersecurity,anomaly detection
+Train an agent to dynamically adjust firewall rules in response to detected threats in a simulated network environment to minimize intrusions while maintaining service availability.,reinforcement,cybersecurity,policy optimization
+Design an adaptive system that learns to allocate computing resources for malware scanning based on evolving threat patterns to optimize performance and detection rates.,reinforcement,cybersecurity,reinforcement learning
+Develop a strategy for automated patch deployment scheduling that balances the urgency of vulnerabilities against operational disruption using feedback from system states over time.,reinforcement,cybersecurity,sequential decision making
+Optimize the configuration of an intrusion prevention system by continuously learning from attack responses and minimizing false positives in a live network environment.,reinforcement,cybersecurity,policy learning
+Create an agent that learns how to prioritize security alerts for investigation based on current threat levels and past incident resolution outcomes to improve SOC efficiency.,reinforcement,cybersecurity,reinforcement learning
+Train a system to autonomously explore vulnerabilities through simulated penetration testing and iteratively refine attack strategies to improve defensive measures.,reinforcement,cybersecurity,exploration-exploitation
+Build a learning framework for adapting spam filter thresholds dynamically based on feedback from user actions to maintain high filtering accuracy over time.,reinforcement,cybersecurity,adaptive thresholding
+Develop an agent that learns optimal multi-factor authentication policies in response to ongoing attack patterns to balance security and user convenience.,reinforcement,cybersecurity,policy optimization

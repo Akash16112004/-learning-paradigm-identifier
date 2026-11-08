@@ -1,0 +1,46 @@
+{
+  "summary": "First run: backend + frontend E2E for P2 Learning-Paradigm Identifier. Backend pytest 16/16 passed (meta, guardrail injection/harmful/PII/short/422, classify supervised/RL/blocked/off-topic with real LLM, history persistence, synthetic list, train status, train param validation 422, eval latest). UI: Classify presets/submit/label/algorithm/confidence/CoT steps/compare cards/attention all work; Nano Banana illustration generated (1408px image, ~10s); guardrail-blocked and off-topic-warning work; /data filter+search filter correctly (200 -> robotics 25 -> +'robot' 23 -> nonsense 0); /training shows val acc, curves, confusion, domain chart, PCA; /evaluation table rows for all 4 methods, eval-run-btn shows N/20 progress and completes (~8s), failures list + per-item table; /responsible guardrail tester (block, PII redaction, samples), bias rows and grounded rate filled; /foundations lifecycle + attention matrix render. No console errors. Regenerate data and training were NOT run, per the request.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/classify", "issue": "Exceptions from the LLM/emergentintegrations calls are not caught, so a provider failure returns a raw 500 instead of a 502 with a clear message (/illustrate already does this)."},
+      {"endpoint": "/api/eval/run", "issue": "asyncio.gather runs without return_exceptions, so one failed LLM call out of 60+ aborts the whole benchmark run."},
+      {"endpoint": "JOBS / trainer.STATE", "issue": "Job state is held in memory and lives in the uvicorn process. Any hot reload (e.g. a file saved under /app/backend) silently drops a running eval, synthetic-generation or training job; the UI then shows idle with no result. Seen in this run: eval job state reset to idle/0 after files were saved under backend/."},
+      {"endpoint": "guardrail.py", "issue": "The broad substring patterns 'you are now' and 'system prompt' block benign scenarios (e.g. 'an agent ... you are now at state s'). Consider tighter patterns."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Classifier off-topic result", "issue": "When the label is not_ml, the UI still shows algorithm 'N/A', 'alternatives: N/A, N/A', the amber 'Algorithm not in known list — possible hallucination' warning, a pipeline and the Generate image button, and the DistilBERT card forces a 3-class paradigm. Hide these, or show a neutral state, when off_topic is true.", "selector": "[data-testid='algorithm-grounded'], [data-testid='generate-illustration-btn']", "priority": "MEDIUM"},
+      {"component": "Router", "issue": "Scroll position is not reset on route change (going from scrolled /responsible to /foundations opens mid-page). Add scroll-to-top on navigation.", "selector": "[data-testid^='nav-item-']", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Training / Evaluation", "issues": ["The current DistilBERT artifact was trained for only 1 epoch (lr 1e-5, bs 8): 50% gold accuracy, about 47% mean confidence, near-uniform probabilities (45-52%). The deliverable comparison looks weak, and the loss curve is a single point. An earlier eval showed DistilBERT at 75%, so retrain with 3+ epochs at 3e-5 before the demo."]},
+      {"screen": "Classify / Evaluation", "issues": ["Token-prob confidence is saturated at 100.0% for every LLM method on every item (mean_confidence 1.0, 0% domain gap). Consider showing the stated CoT answer probability before reasoning, or adding harder or ambiguous benchmark items, so confidence and bias analysis are informative."]},
+      {"screen": "Dataset", "issues": ["The button label says 'Generating (≈30 s)' while the review notes ~60s; minor copy mismatch."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/test_paradigm_api.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Retrain DistilBERT with more epochs (e.g. 3 epochs, 3e-5, bs16). The current artifact is 1-epoch, 50% on gold, near-random confidence.",
+    "Classifier: when off_topic, hide the algorithm/hallucination warning/illustration/pipeline and label the DistilBERT card as not applicable.",
+    "Wrap LLM calls in /api/classify in try/except and return 502; use return_exceptions or per-item try in _eval_job so one failure doesn't kill the run.",
+    "Add scroll-to-top on route change.",
+    "Optional: tighten guardrail patterns ('you are now', 'system prompt') to reduce false positives."
+  ],
+  "critical_code_review_comments": [
+    "server.py classify: unhandled LLM exceptions -> 500.",
+    "server.py _eval_job: gather without return_exceptions; one failure aborts everything.",
+    "In-memory JOBS/STATE are lost on reload or restart; consider persisting job status in Mongo.",
+    "trainer.load_model has no lock, so two concurrent first requests could both build the model (memory spike). Minor.",
+    "llm.chain_of_thought: confidence is taken from a second call conditioned on the reasoning, so it is almost always 1.0."
+  ],
+  "updated_files": ["/app/backend/tests/test_paradigm_api.py"],
+  "success_rate": {"backend": "100% (16/16)", "frontend": "95% (all flows work; 2 minor UI issues)"},
+  "test_credentials": "none - no auth",
+  "seed_data_creation": "Classification history docs were created via /api/classify (insert-only log, no TEST_ prefix possible). One extra eval run was inserted by clicking eval-run-btn. No data was deleted or regenerated; no training was started.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Run: REACT_APP_BACKEND_URL=... pytest /app/backend/tests/test_paradigm_api.py. Avoid /api/synthetic/generate and /api/train (they overwrite data or the model). POST /api/train 409 was not tested because it needs an active training run. Eval run takes about 8s, illustration about 10s."
+}

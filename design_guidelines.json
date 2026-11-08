@@ -1,0 +1,153 @@
+{
+  "project_name": "P2 · Learning-Paradigm Identifier",
+  "archetype": "ARCHETYPE 4: SWISS & HIGH-CONTRAST + PERFORMANCE PRO",
+  "theme": "Dark Mode (Deep Void Slate)",
+  "file_type": "js",
+  "overview": {
+    "goal": "Interactive ML research & diagnostic suite for classifying problem scenarios into Supervised, Unsupervised, or Reinforcement Learning paradigms with CoT reasoning, token-probability confidence, zero-shot vs few-shot vs DistilBERT comparisons, Keras training simulation, and responsible AI governance.",
+    "target_audience": "ML Researchers, AI Engineers, Students, Technical Decision Makers",
+    "pages": [
+      {
+        "id": "classifier",
+        "name": "Paradigm Classifier",
+        "description": "Enter or select a problem scenario -> see step-by-step Chain of Thought (CoT) reasoning, predicted paradigm label (Supervised / Unsupervised / Reinforcement Learning), recommended algorithms, token-probability confidence bars, side-by-side LLM vs DistilBERT comparison, and dynamic pipeline workflow diagram."
+      },
+      {
+        "id": "synthetic_data",
+        "name": "Synthetic Dataset (200 Scenarios)",
+        "description": "Explore and generate 200 synthetic problem scenarios categorized across 6 domains (Healthcare, Finance, Robotics, E-commerce, Vision, NLP). Features searchable grid, domain filtering, complexity tags, and sample data viewer."
+      },
+      {
+        "id": "training",
+        "name": "Keras DistilBERT Fine-Tuning",
+        "description": "Simulated Keras DistilBERT fine-tuning control center with epoch-by-epoch progress, dynamic loss/accuracy line charts, hyperparameter controls (learning rate, batch size, epochs), and weight layer metrics."
+      },
+      {
+        "id": "evaluation",
+        "name": "20-Scenario Benchmark & Eval",
+        "description": "Rigorous evaluation suite comparing Zero-Shot LLM, Few-Shot LLM, and Fine-Tuned DistilBERT on 20 hand-labeled scenarios. Includes per-domain radar/bar charts, failure case analysis, latency benchmarks, and statistical error matrix."
+      },
+      {
+        "id": "foundations",
+        "name": "ML Foundations & Attention",
+        "description": "Interactive educational hub featuring the complete ML Lifecycle Diagram, Generative vs Discriminative framing comparator, and step-by-step Transformer Multi-Head Attention visual explainer (Q, K, V dot product matrix)."
+      },
+      {
+        "id": "responsible_ai",
+        "name": "Responsible AI & Model Card",
+        "description": "Governance dashboard spotlighting domain bias analysis, input safety guardrail tester, synthetic data limitation disclosure, open-source license note, and official DistilBERT Model Card tabbed view."
+      }
+    ]
+  },
+  "typography": {
+    "heading_font": "Outfit, system-ui, sans-serif",
+    "body_font": "Inter, system-ui, sans-serif",
+    "mono_font": "JetBrains Mono, Source Code Pro, monospace",
+    "sizes": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-semibold tracking-normal",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm text-slate-400 font-normal",
+      "mono_token": "font-mono text-xs sm:text-sm tracking-wider"
+    }
+  },
+  "colors": {
+    "background": "#0B0F17",
+    "surface": "#131B2E",
+    "surface_hover": "#1E293B",
+    "card_bg": "bg-slate-900/80",
+    "border": "border-slate-800",
+    "border_highlight": "border-cyan-500/30",
+    "text": {
+      "primary": "text-slate-100",
+      "secondary": "text-slate-400",
+      "muted": "text-slate-500",
+      "accent": "text-cyan-400"
+    },
+    "paradigm_colors": {
+      "supervised": {
+        "badge": "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
+        "hex": "#06B6D4",
+        "gradient": "from-cyan-500/20 to-blue-600/10"
+      },
+      "unsupervised": {
+        "badge": "bg-amber-500/10 text-amber-400 border-amber-500/30",
+        "hex": "#F59E0B",
+        "gradient": "from-amber-500/20 to-orange-600/10"
+      },
+      "reinforcement": {
+        "badge": "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+        "hex": "#10B981",
+        "gradient": "from-emerald-500/20 to-teal-600/10"
+      }
+    },
+    "model_accents": {
+      "llm_zero_shot": "#8B5CF6",
+      "llm_few_shot": "#3B82F6",
+      "distilbert": "#EC4899"
+    }
+  },
+  "layout_and_spacing": {
+    "padding_philosophy": "Generous spacing. Internal container padding MUST use p-6 or p-8 to prevent text collision against borders.",
+    "grid_mode": "Bento High Density Grid for analytics; Tactical Tetris layout for scenario cards.",
+    "header": "Fixed top navigation bar with blur effect (backdrop-blur-xl bg-slate-950/80 border-b border-slate-800 z-50), brand logo, navigation tabs, theme status, and quick scenario trigger.",
+    "container_max_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  },
+  "components_and_ui": {
+    "shadcn_usage": "Use Shadcn components for Tabs, Progress, Dialog, Accordion, Select, Tooltip, Badge, Table, Slider, and Switch. Heavily custom styled with Tailwind dark void classes.",
+    "charting_library": "Recharts for loss/accuracy line charts, domain accuracy radar/bar charts, confidence distributions, and latency bars.",
+    "illustrations": "Custom animated SVG diagrams for ML Lifecycle, Pipeline Workflow, Transformer Attention Matrices, and Neural Network topology."
+  },
+  "image_urls": [
+    {
+      "category": "hero_neural_background",
+      "url": "https://images.unsplash.com/photo-1664854953181-b12e6dda8b7c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBuZXVyYWwlMjBuZXR3b3JrJTIwZGF0YSUyMHZpc3VhbGl6YXRpb258ZW58MHx8fHwxNzk0MDc3MzAxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Network graph visualization for header background accents"
+    },
+    {
+      "category": "ai_brain_abstract",
+      "url": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBuZXVyYWwlMjBuZXR3b3JrJTIwZGF0YSUyMHZpc3VhbGl6YXRpb258ZW58MHx8fHwxNzk0MDc3MzAxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract neural node sphere for Model Card and Foundations page"
+    }
+  ],
+  "testing_and_accessibility": {
+    "data_testid_rule": "EVERY interactive element, button, tab, input, metric card, scenario row, chart container, and modal MUST contain a descriptive data-testid in kebab-case format.",
+    "contrast_standard": "All text elements must meet WCAG AA contrast (minimum 4.5:1 ratio). Hover states must explicitly state text color (e.g., hover:bg-slate-800 hover:text-white).",
+    "sample_testids": [
+      "nav-item-classifier",
+      "nav-item-synthetic-data",
+      "nav-item-training",
+      "nav-item-evaluation",
+      "nav-item-foundations",
+      "nav-item-responsible-ai",
+      "classifier-input-scenario",
+      "classifier-submit-btn",
+      "classifier-preset-dropdown",
+      "classifier-cot-reasoning-panel",
+      "classifier-confidence-bar",
+      "classifier-pipeline-diagram",
+      "synthetic-domain-filter",
+      "synthetic-search-input",
+      "synthetic-table-row",
+      "training-start-btn",
+      "training-lr-slider",
+      "training-loss-chart",
+      "eval-benchmark-table",
+      "eval-domain-chart",
+      "foundations-lifecycle-diagram",
+      "foundations-attention-matrix",
+      "responsible-guardrail-test-input",
+      "responsible-model-card-modal"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure the code uses JS / JSX format as configured in frontend directory.",
+    "Ensure all 6 key requirement sections are rich, functional, interactive, and pre-populated with realistic ML scenarios and metrics.",
+    "Implement real-time interactive state management for scenario classification, custom text input, training simulation, synthetic dataset filtering, and guardrail testing.",
+    "Ensure Sonner toasts notify the user on scenario analysis, model training actions, data export, and safety guardrail flags.",
+    "Make heavy use of clear data structures containing 200 synthetic scenarios and 20 hand-labeled gold benchmark scenarios so all charts and tables render rich statistical data.",
+    "Strictly follow the dark mode styling with cyan, amber, emerald, and violet color coding for machine learning paradigms and model types."
+  ]
+}

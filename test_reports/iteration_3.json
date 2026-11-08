@@ -1,0 +1,23 @@
+{
+  "summary": "Tested the ML_ENABLED deployment fix. Preview (ML enabled), live: 21/21 pytest passed (the existing suite plus new flag tests). GET /api/ returns ml_enabled=true and trained=true. /api/meta has ml_enabled and hf_space_url (empty string because HF_SPACE_URL is not set in backend/.env). /api/train/status returns ml_enabled=true with meta. Classify returns a live distilbert result with attention. Production fallback: confirmed `sys.modules['torch']=None; import server` gives ML_ENABLED=False. An in-process simulation (tests/fallback_sim.py, with mocked LLM and an in-memory fake DB, so no real DB writes) confirmed: /api/train returns 503; /api/train/status returns state 'unavailable', the saved train_meta.json, ml_enabled false and trained false; classify returns distilbert=null; eval uses saved predictions with distilbert_source 'saved' and distilbert accuracy 0.75; distilbert_benchmark.json is not overwritten. Frontend: no error overlay or page errors on any of the 6 routes. /training renders the 4 stats (95.0% / 75.0% / 118.3s / 4 ep), the loss chart, the confusion matrix, the domain chart and the PCA chart, and the start button is enabled. /evaluation renders 4 method rows. The fallback UI was checked by mocking API responses with page.route: training-unavailable notice with HF link shows, training-start-btn is disabled, eval-saved-note shows, and the DistilBERT card reads 'runs in preview / HF Space — see Evaluation for saved scores'. No live retraining or full eval was run.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": [
+    {"screen": "Classifier compare panel (fallback)", "issues": ["The long 'runs in preview / HF Space…' text squeezes into the card header next to the 'DistilBERT (Keras)' title, which wraps onto two lines. Consider placing the text below the title."]}
+  ]},
+  "test_report_links": ["/app/backend/tests/test_ml_fallback.py", "/app/backend/tests/fallback_sim.py", "/app/backend/tests/test_paradigm_api.py", "/app/test_reports/pytest/pytest_results_iter3.xml"],
+  "action_items": [
+    "Optional: set HF_SPACE_URL in the production env so the Training notice links to the Space (the link is hidden while the value is empty)"
+  ],
+  "critical_code_review_comments": [
+    "server.py catches only ImportError around `import trainer`. If keras/transformers are partly installed on the host and raise a different exception at import time, the backend will crash. Consider `except Exception`.",
+    "A live eval (preview) overwrites artifacts/distilbert_benchmark.json. This is intended, but re-running eval after retraining in preview will change the production fallback numbers if they are committed.",
+    "requirements.txt does not include torch, keras or transformers (good for production). Preview relies on them being pre-installed.",
+    "distilbert_keras.pt (265MB) is gitignored and the JSON artifacts are not, so the fallback data will ship."
+  ],
+  "updated_files": ["/app/backend/tests/test_ml_fallback.py", "/app/backend/tests/fallback_sim.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "None. One classify call stored one history entry, as in earlier iterations.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Use tests/fallback_sim.py to check the no-torch path without touching the DB. Check the frontend fallback UI by mocking /api/train/status, /api/meta and /api/eval/latest with page.route. Python urllib calls to the public URL return 403, so use page.request instead. Do not retrain or run a full eval."
+}
